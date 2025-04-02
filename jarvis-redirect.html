@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <title>J.A.R.V.I.S. Initializing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --jarvis-blue: #00a8ff;
+            --jarvis-dark: #1a1a2e;
+            --jarvis-light: #e6e6e6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--jarvis-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .jarvis-container {
+            text-align: center;
+            color: var(--jarvis-light);
+            position: relative;
+        }
+
+        .jarvis-logo {
+            font-size: 4rem;
+            color: var(--jarvis-blue);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--jarvis-blue);
+            animation: glow 2s infinite;
+        }
+
+        .jarvis-text {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .jarvis-text span {
+            display: inline-block;
+            animation: typing 3s steps(40, end);
+        }
+
+        .circuit-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--jarvis-blue), transparent);
+            height: 2px;
+            width: 100%;
+            animation: circuitFlow 2s linear infinite;
+        }
+
+        .circuit-line:nth-child(1) { top: 20%; animation-delay: 0s; }
+        .circuit-line:nth-child(2) { top: 40%; animation-delay: 0.5s; }
+        .circuit-line:nth-child(3) { top: 60%; animation-delay: 1s; }
+        .circuit-line:nth-child(4) { top: 80%; animation-delay: 1.5s; }
+
+        .loading-ring {
+            width: 100px;
+            height: 100px;
+            border: 3px solid transparent;
+            border-top-color: var(--jarvis-blue);
+            border-radius: 50%;
+            margin: 2rem auto;
+            animation: rotate 2s linear infinite;
+        }
+
+        .status-text {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+            font-family: monospace;
+        }
+
+        .progress-container {
+            width: 300px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--jarvis-blue), #00ff88);
+            border-radius: 2px;
+            animation: progress 3s ease-in-out forwards;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px var(--jarvis-blue); }
+            50% { text-shadow: 0 0 20px var(--jarvis-blue), 0 0 30px var(--jarvis-blue); }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes circuitFlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .jarvis-logo {
+                font-size: 3rem;
+            }
+
+            .jarvis-text {
+                font-size: 1.5rem;
+            }
+
+            .progress-container {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .jarvis-logo {
+                font-size: 2.5rem;
+            }
+
+            .jarvis-text {
+                font-size: 1.2rem;
+            }
+
+            .progress-container {
+                width: 200px;
+            }
+
+            .status-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="jarvis-container">
+        <div class="circuit-lines">
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+            <div class="circuit-line"></div>
+        </div>
+        
+        <div class="jarvis-logo">
+            <i class="fas fa-robot"></i>
+        </div>
+        
+        <div class="jarvis-text">
+            <span>J.A.R.V.I.S.</span>
+        </div>
+        
+        <div class="loading-ring"></div>
+        
+        <div class="status-text">INITIALIZING SYSTEM</div>
+        
+        <div class="progress-container">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to the main Jarvis page after 3 seconds
+        setTimeout(function() {
+            window.location.href = 'https://github.com/Yugpatel009/PythonProject.git';
+        }, 3000);
+    </script>
+</body>
+</html>
