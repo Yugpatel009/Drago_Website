@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects - Drago</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./img/logo2.png" type="image/png">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        #vanta-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            padding: 0.8rem 1.5rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .navbar-brand {
+            color: #ffffff !important;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            padding: 0.5rem 1.2rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link:hover {
+            color: #1DB954 !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            color: #1DB954 !important;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 100px 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+            border-color: rgba(0, 255, 255, 0.4);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: #00ffff;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 20px;
+            color: #00ffff;
+            text-decoration: none;
+            border: 1px solid #00ffff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #00ffff;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .projects-section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .project-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .project-title {
+                font-size: 1.3rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vanta-canvas"></div>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" alt="Drago Logo">
+                    Drago
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-label="Toggle navigation menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="project.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Content</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Our Projects</h2>
+                <div class="row">
+                    <!-- Project 1 -->
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <i class="fas fa-robot project-icon"></i>
+                            <h3 class="project-title"> AI Assistant</h3>
+                            <p class="project-description">A personal AI assistant that can perform multiple functions
+                                seamlessly, including opening social media platforms and answering questions.</p>
+                            <a href="jarvis.html" class="project-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <i class="fas fa-globe project-icon"></i>
+                            <h3 class="project-title">Website Development</h3>
+                            <p class="project-description">Modern and responsive website development with interactive
+                                features and stunning visual effects.</p>
+                            <a href="https://threebbcdregi.netlify.app/" class="project-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <i class="fas fa-mobile-alt project-icon"></i>
+                            <h3 class="project-title">Spotify Clone</h3>
+                            <p class="project-description">A Spotify clone is a web or mobile application designed to
+                                mimic the functionality and user experience of the original Spotify streaming service.
+                                Here are some key areas of information you might consider if you’re interested in
+                                developing or understanding a Spotify clone:
+
+                            </p>
+                            <a href="spotify-redirect.html" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            VANTA.NET({
+                el: "#vanta-canvas",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x00ffff,
+                backgroundColor: 0x0,
+                points: 10.00,
+                maxDistance: 20.00,
+                spacing: 15.00
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

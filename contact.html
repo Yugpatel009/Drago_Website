@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - Drago</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="img/fotor-2024120218595.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./img/logo2.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #vanta-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.2) !important;
+      padding: 0.8rem 1.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .navbar-brand {
+      color: #ffffff !important;
+      font-weight: bold;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link:hover {
+      color: #1DB954 !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+      color: #1DB954 !important;
+      font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 100px 0;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+      border-color: rgba(0, 255, 255, 0.4);
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .contact-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      color: #fff;
+      padding: 12px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #00ffff;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-submit {
+      background: transparent;
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      padding: 12px 30px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background: #00ffff;
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .contact-info {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        padding: 60px 0;
+      }
+
+      .contact-card {
+        padding: 30px;
+      }
+
+      .contact-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .contact-title {
+        font-size: 1.5rem;
+      }
+
+      .form-control {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="vanta-canvas"></div>
+  <div class="content-wrapper">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.png" alt="Drago Logo">
+          Drago
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-label="Toggle navigation menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="project.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <h2 class="contact-title">Contact Me</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="contact-card">
+              <form>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <script>
+    window.addEventListener('load', function () {
+      VANTA.NET({
+        el: "#vanta-canvas",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x00ffff,
+        backgroundColor: 0x0,
+        points: 10.00,
+        maxDistance: 20.00,
+        spacing: 15.00
+      });
+    });
+  </script>
+</body>
+
+</html>
