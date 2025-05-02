@@ -171,6 +171,21 @@
                 font-size: 0.9rem;
             }
         }
+
+        .container2 {
+            background: rgba(69, 65, 65, 0.2);
+            /* Light transparent background */
+            backdrop-filter: blur(2px);
+            /* Reduced blur effect */
+            -webkit-backdrop-filter: blur(2px);
+            /* Reduced blur effect for Safari */
+            border-radius: 10px;
+            /* Optional: Rounded corners */
+            padding: 20px;
+            /* Optional: Spacing inside */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* Optional: Add a shadow */
+        }
     </style>
 </head>
 
@@ -211,7 +226,7 @@
 
         <!-- Projects Section -->
         <section class="projects-section">
-            <div class="container">
+            <div class="container2">
                 <h2 class="section-title">Our Projects</h2>
                 <div class="row">
                     <!-- Project 1 -->
@@ -219,7 +234,8 @@
                         <div class="project-card">
                             <i class="fas fa-robot project-icon"></i>
                             <h3 class="project-title"> AI Assistant</h3>
-                            <p class="project-description">A personal AI assistant that can perform multiple functions
+                            <p class="project-description" style="font-size: larger; font-weight: 300;">A personal AI
+                                assistant that can perform multiple functions
                                 seamlessly, including opening social media platforms and answering questions.</p>
                             <a href="jarvis.html" class="project-link">View Project</a>
                         </div>
@@ -230,7 +246,8 @@
                         <div class="project-card">
                             <i class="fas fa-globe project-icon"></i>
                             <h3 class="project-title">Website Development</h3>
-                            <p class="project-description">Modern and responsive website development with interactive
+                            <p class="project-description" style="font-size: larger; font-weight: 300;">Modern and
+                                responsive website development with interactive
                                 features and stunning visual effects.</p>
                             <a href="https://threebbcdregi.netlify.app/" class="project-link">View Project</a>
                         </div>
@@ -241,13 +258,38 @@
                         <div class="project-card">
                             <i class="fas fa-mobile-alt project-icon"></i>
                             <h3 class="project-title">Spotify Clone</h3>
-                            <p class="project-description">A Spotify clone is a web or mobile application designed to
+                            <p class="project-description" style="font-size: larger; font-weight: 300;">
+                                A Spotify clone is a web or mobile application designed to
                                 mimic the functionality and user experience of the original Spotify streaming service.
                                 Here are some key areas of information you might consider if you’re interested in
                                 developing or understanding a Spotify clone:
 
                             </p>
                             <a href="spotify-redirect.html" class="project-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Project-4 -->
+                    <div class="col-md-4" style="margin-top: 35px;">
+                        <div class="project-card">
+                            <i class="fas fa-mobile-alt project-icon"></i>
+                            <h3 class="project-title">QR-Code Generator </h3>
+                            <p class="project-description" style="font-size: larger; font-weight: 300;">
+                                Enter any text or link below to generate a QR code instantly.
+                            </p>
+                            <a href="https://qr-generator-ibg8.onrender.com/" class="project-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Project-5 -->
+                    <div class="col-md-4" style="margin-top: 35px;">
+                        <div class="project-card">
+                            <i class="fas fa-mobile-alt project-icon"></i>
+                            <h3 class="project-title">QR-Code Generator </h3>
+                            <p class="project-description" style="font-size: larger; font-weight: 300;">
+                                If you want to play Tic-Tac-Toe, click below to start the game.
+                            </p>
+                            <a href="https://tic-toc-tac.onrender.com/" class="project-link">View Project</a>
                         </div>
                     </div>
                 </div>
