@@ -2,103 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Projects - Drago</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="./img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/logo2.png" type="image/png" />
+
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
             background-color: #1a1a2e;
             color: #ffffff;
         }
 
-        #vanta-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
-
-        /* Navbar */
         .navbar {
             background-color: rgba(0, 0, 0, 0.2) !important;
-            padding: 0.8rem 1.5rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-        }
-
-        .navbar-brand {
-            color: #ffffff !important;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .navbar-brand img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
         }
 
         .nav-link {
             color: #ffffff !important;
             font-weight: 500;
-            padding: 0.5rem 1.2rem;
-            margin: 0 0.5rem;
-            transition: all 0.3s ease;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .nav-link:hover {
-            color: #1DB954 !important;
-            transform: translateY(-1px);
-        }
-
+        .nav-link:hover,
         .nav-link.active {
             color: #1DB954 !important;
-            font-weight: bold;
         }
 
-        /* Projects Section */
-        .projects-section {
-            padding: 100px 0;
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 80px 0 40px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
 
         .project-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             padding: 30px;
-            margin-bottom: 30px;
             border: 1px solid rgba(0, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
-            border-color: rgba(0, 255, 255, 0.4);
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
         }
 
         .project-icon {
@@ -107,201 +64,150 @@
             margin-bottom: 20px;
         }
 
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
-        .project-description {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
         .project-link {
             display: inline-block;
-            padding: 8px 20px;
+            margin-top: 10px;
             color: #00ffff;
-            text-decoration: none;
             border: 1px solid #00ffff;
             border-radius: 25px;
+            padding: 8px 20px;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .project-link:hover {
             background: #00ffff;
             color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .projects-section {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .project-card {
-                padding: 20px;
-                /* margin-bottom: 50px ; */
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .project-title {
-                font-size: 1.3rem;
-            }
-
-            .project-description {
-                font-size: 0.9rem;
-            }
         }
 
         .container2 {
-            background: rgba(69, 65, 65, 0.2);
-            /* Light transparent background */
-            backdrop-filter: blur(2px);
-            /* Reduced blur effect */
-            -webkit-backdrop-filter: blur(2px);
-            /* Reduced blur effect for Safari */
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            /* Optional: Rounded corners */
             padding: 20px;
-            /* Optional: Spacing inside */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            /* Optional: Add a shadow */
         }
     </style>
 </head>
 
 <body>
-    <div class="content-wrapper">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" alt="Drago Logo">
-                    Drago
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-label="Toggle navigation menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="project.html">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Content</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logo.png" alt="Drago Logo" width="40" height="40" class="me-2" />
+                <span class="text-white fw-bold">Drago</span>
+            </a>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="project.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
             </div>
-        </nav>
-
-        <!-- Projects Section -->
-        <section class="projects-section">
-            <div class="container2">
-                <h2 class="section-title">Our Projects</h2>
-                <div class="row">
-                    <!-- Project 1 -->
-                    <div class="col-md-4" style="margin-bottom: 30px;">
-                        <div class="project-card">
-                            <i class="fas fa-robot project-icon"></i>
-                            <h3 class="project-title"> AI Assistant</h3>
-                            <p class="project-description" style="font-size: larger; font-weight: 300;">A personal AI
-                                assistant that can perform multiple functions
-                                seamlessly, including opening social media platforms and answering questions.</p>
-                            <a href="jarvis.html" class="project-link">View Project</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="col-md-4"  style="margin-bottom: 30px;  ">
-                        <div class="project-card">
-                            <i class="fas fa-globe project-icon"></i>
-                            <h3 class="project-title">Website Development</h3>
-                            <p class="project-description" style="font-size: larger; font-weight: 300;">Modern and
-                                responsive website development with interactive
-                                features and stunning visual effects.</p>
-                            <a href="https://threebbcdregi.netlify.app/" class="project-link">View Project</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="col-md-4">
-                        <div class="project-card">
-                            <i class="fas fa-mobile-alt project-icon"></i>
-                            <h3 class="project-title">Spotify Clone</h3>
-                            <p class="project-description" style="font-size: larger; font-weight: 300;">
-                                A Spotify clone is a web or mobile application designed to
-                                mimic the functionality and user experience of the original Spotify streaming service.
-                                Here are some key areas of information you might consider if you’re interested in
-                                developing or understanding a Spotify clone:
-
-                            </p>
-                            <a href="spotify-redirect.html" class="project-link">View Project</a>
-                        </div>
-                    </div>
-
-                    <!-- Project-4 -->
-                    <div class="col-md-4" style="margin-top: 35px;">
-                        <div class="project-card">
-                            <i class="fas fa-mobile-alt project-icon"></i>
-                            <h3 class="project-title">QR-Code Generator </h3>
-                            <p class="project-description" style="font-size: larger; font-weight: 300;">
-                                Enter any text or link below to generate a QR code instantly.
-                            </p>
-                            <a href="https://qr-generator-ibg8.onrender.com/" class="project-link">View Project</a>
-                        </div>
-                    </div>
-
-                    <!-- Project-5 -->
-                    <div class="col-md-4" style="margin-top: 35px;">
-                        <div class="project-card">
-                            <i class="fas fa-mobile-alt project-icon"></i>
-                            <h3 class="project-title">Tic-Tac-Toe </h3>
-                            <p class="project-description" style="font-size: larger; font-weight: 300;">
-                                If you want to play Tic-Tac-Toe, click below to start the game.
-                            </p>
-                            <a href="https://tic-toc-tac.onrender.com/" class="project-link">View Project</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </nav>
+    <!-- Typed Section -->
+    <div class="text-center mt-5 relative">
+        <!-- Use span inside h2 for better animation control -->
+        <h2 class="section-title">
+            <span id="element"></span>
+        </h2>
     </div>
+    <section class="pt-5 mt-5">
+        <div class="container2 container mt-5">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <i class="fas fa-robot project-icon"></i>
+                        <h4>AI Assistant</h4>
+                        <p>Smart assistant that handles commands like opening social apps or answering questions.</p>
+                        <a href="jarvis.html" class="project-link">View Project</a>
+                    </div>
+                </div>
 
-    <!-- Scripts -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <i class="fas fa-globe project-icon"></i>
+                        <h4>Website Development</h4>
+                        <p>Modern responsive websites with animation and interactive features.</p>
+                        <a href="https://threebbcdregi.netlify.app/" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <i class="fas fa-music project-icon"></i>
+                        <h4>Spotify Clone</h4>
+                        <p>A streaming web app that mimics Spotify with playback features and a clean UI.</p>
+                        <a href="spotify-redirect.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="margin-top: 35px;">
+                    <div class="project-card">
+                        <i class="fas fa-mobile-alt project-icon"></i>
+                        <h3 class="project-title">QR-Code Generator </h3>
+                        <p class="project-description" style="font-size: larger; font-weight: 300;">
+                            Enter any text or link below to generate a QR code instantly.
+                        </p>
+                        <a href="https://qr-generator-ibg8.onrender.com/" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="margin-top: 35px;">
+                    <div class="project-card">
+                        <i class="fa-solid fa-gamepad" style="font-size: 40px;color: #00ffff; margin-bottom: 10px;"></i>
+
+                        <h3 class="project-title">Tic-Tac-Toe </h3>
+                        <p class="project-description" style="font-size: larger; font-weight: 300;">
+                            If you want to play Tic-Tac-Toe, click below to start the game.
+                        </p>
+                        <a href="https://tic-toc-tac.onrender.com/" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" style="margin-top: 35px;">
+                    <div class="project-card">
+                        <i class="fa-solid fa-film" style="font-size: 40px;color: #00ffff; margin-bottom: 10px;"></i>
+
+                        <h3 class="project-title"> Cine-Drake </h3>
+                        <p class="project-description" style="font-size: larger; font-weight: 300;">
+                            Enter a movie title below to start your cinematic journey!
+                        </p>
+                        <a href="https://movie-search-c322.onrender.com" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const element = document.getElementById('element');
+            if (element) {
+                new Typed(element, {
+                    strings: ['Hi there!', 'Thanks for visiting my projects.'],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    backDelay: 1500,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
