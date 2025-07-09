@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Drago Project</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="icon" href="./img/logo2.png" type="image/png">
-  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" href="./img/logo2.png" type="image/png" />
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.80/build/spline-viewer.js"></script>
 
   <style>
@@ -17,6 +15,8 @@
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     #vanta-canvas {
@@ -34,7 +34,6 @@
       padding: 20px;
     }
 
-    /* Navbar */
     .navbar {
       background-color: rgba(0, 0, 0, 0.2) !important;
       padding: 0.8rem 1.5rem;
@@ -43,16 +42,13 @@
       left: 0;
       right: 0;
       z-index: 9999;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
       border-bottom: 1px solid rgba(0, 255, 255, 0.2);
     }
 
     .navbar-brand {
       color: #ffffff !important;
       font-weight: bold;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .navbar-brand img {
@@ -67,81 +63,41 @@
       padding: 0.5rem 1.2rem;
       margin: 0 0.5rem;
       transition: all 0.3s ease;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-    .nav-link:hover {
+    .nav-link:hover,
+    .nav-link.active {
       color: #1DB954 !important;
       transform: translateY(-1px);
     }
 
-    .nav-link.active {
-      color: #1DB954 !important;
-      font-weight: bold;
-    }
-
-    .navbar-toggler {
-      border-color: rgba(255, 255, 255, 0.5);
-      padding: 0.5rem;
-    }
-
-    .navbar-toggler:focus {
-      box-shadow: none;
-      border-color: rgba(255, 255, 255, 0.75);
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 1rem;
-        margin-top: 0.5rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-
-      .nav-link {
-        padding: 0.75rem 1rem;
-        margin: 0.25rem 0;
-      }
-    }
-
     main {
       padding-top: 80px;
-      min-height: calc(100vh - 80px);
-      position: relative;
-      z-index: 1;
+      min-height: 60vh;
     }
 
     .welcome-section {
       text-align: center;
-      padding: 100px 20px;
-      position: relative;
-      z-index: 2;
+      padding: 100px 20px 60px 20px;
     }
 
     .welcome-title {
       font-size: 3.5rem;
       font-weight: bold;
       color: #fff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       margin-bottom: 20px;
-    }
-
-    .welcome-subtitle {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 30px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
-    .cta-button {
+    /* Bottom area with Explore + Visitor Count */
+    .bottom-section {
+      text-align: center;
+      padding: 40px 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .cta-button-bottom {
       display: inline-block;
       padding: 12px 30px;
       color: #fff;
@@ -154,74 +110,54 @@
       background: transparent;
     }
 
-    .cta-button:hover {
+    .cta-button-bottom:hover {
       background: #00ffff;
       color: #000;
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
     }
 
-    @media (max-width: 768px) {
-      .welcome-title {
-        font-size: 2.5rem;
-      }
-
-      .welcome-subtitle {
-        font-size: 1.8rem;
-      }
+    #count {
+      color: white;
+      margin-top: 15px;
+      font-size: 1.2rem;
     }
 
     @media (max-width: 576px) {
       .welcome-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
-      .welcome-subtitle {
-        font-size: 1.5rem;
-      }
-
-      .cta-button {
-        padding: 10px 25px;
+      .cta-button-bottom {
         font-size: 1rem;
+        padding: 10px 25px;
       }
     }
   </style>
 </head>
 
 <body>
+  <!-- Background Animation -->
   <div id="vanta-canvas"></div>
-  <div class="content-wrapper">
-    <!-- Background 3D
-    <spline-viewer url="https://prod.spline.design/56NDxjovT7fbYIwz/scene.splinecode"
-      style="position: fixed; width: 100%; height: 100%; z-index: -1;"></spline-viewer> -->
 
+  <!-- Page Content -->
+  <div class="content-wrapper">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img src="img/logo.png" alt="Drago Logo">
+          <img src="img/logo.png" alt="Drago Logo" />
           Drago
         </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-label="Toggle navigation menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="project.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Content</a>
-            </li>
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="project.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -230,33 +166,80 @@
     <!-- Main Content -->
     <main>
       <section class="welcome-section">
-        <h1 class="welcome-title">Welcome to Our Website</h1>
-        <!-- <p class="welcome-subtitle">Your Digital Experience Awaits</p> -->
-        <a href="project.html" class="cta-button" style="margin-top: 50px;">Explore Projects</a>
+        <span id="element" class="welcome-title"></span>
       </section>
     </main>
+
+    <!-- Bottom Section -->
+    <div class="bottom-section" style="margin-top: -180px;">
+      <a href="project.html" class="cta-button-bottom">Explore Projects</a>
+      <p id="count" style="margin-top: 300px;">Loading visitor count...</p>
+    </div>
   </div>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/build/three.r134.min.js"></script> -->
+  <!-- Typed Text Animation -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['Welcome To My Website'],
+      typeSpeed: 50,
+    });
+  </script>
 
+  <!-- Vanta Background -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.halo.min.js"></script>
-<script>
-  window.addEventListener('load', function () {
-    VANTA.HALO({
-      el: "#vanta-canvas",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00
+  <script>
+    window.addEventListener('load', function () {
+      VANTA.HALO({
+        el: "#vanta-canvas",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00
+      });
     });
-  });
-</script>
+  </script>
+
+  <!-- Firebase Visitor Counter -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDXhtIYstWGSKDk4Wm8xD5uiWKpvxpezTA",
+      authDomain: "dragoweb-cbabe.firebaseapp.com",
+      projectId: "dragoweb-cbabe",
+      storageBucket: "dragoweb-cbabe.appspot.com",
+      messagingSenderId: "728259612373",
+      appId: "1:728259612373:web:9dad7f9d49f629a64f1c5c",
+      measurementId: "G-M4Q1NXG66C"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    async function updateVisitorCount() {
+      const visitorDocRef = doc(db, "stats", "visitorCount");
+      const docSnap = await getDoc(visitorDocRef);
+
+      if (docSnap.exists()) {
+        const newCount = docSnap.data().count + 1;
+        await updateDoc(visitorDocRef, { count: newCount });
+        document.getElementById("count").innerText = `Visitor count: ${newCount}`;
+      } else {
+        await setDoc(visitorDocRef, { count: 1 });
+        document.getElementById("count").innerText = "Visitor count: 1";
+      }
+    }
+
+    updateVisitorCount();
+  </script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>
